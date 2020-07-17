@@ -17,7 +17,11 @@ PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
 // TODO: Add margin left/right
 void PWSlider::drawSlider(){
     gfx->RoundRectFilled(x+2, y + 2, x + w - 2, y + h - 2, 2,colorb);
-    uint8_t slider = ((w-2) * slider_pos / 100);
+    updateSlider(slider_pos, tcolor);
+}
+
+void PWSlider::updateSlider(uint16_t posx, uint16_t color){
+    uint8_t slider = ((w-2) * posx / 100);
     int16_t sliderL = x + slider - 2;
     if(sliderL < x + 2){
         sliderL = x + 2;
@@ -26,14 +30,15 @@ void PWSlider::drawSlider(){
     if(sliderR > x + w - 2){
         sliderR = x + w - 2;
     }
-    gfx->RectangleFilled(sliderL, y + 3, sliderR, y + h - 3, tcolor);
+    gfx->RectangleFilled(sliderL, y + 3, sliderR, y + h - 3, color);
 }
 
 void PWSlider::touched(uint16_t x, uint16_t y){
     uint8_t calc_pos = (x - this->x) * 100 / w;
     if(calc_pos != slider_pos){
+        updateSlider(slider_pos, colorb);
         slider_pos = calc_pos;
-        drawSlider();
+        updateSlider(slider_pos, tcolor);
         callback(slider_pos);
     }
 }
