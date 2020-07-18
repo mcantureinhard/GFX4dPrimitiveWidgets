@@ -57,23 +57,23 @@ void LedDigit::update(uint8_t value){
             grid[offset + a + i] |= parts[0][i] << 0;
         }
         if(part_b){ // top r
-            grid[offset + a + i] |= parts[1][i] << 0;
-            grid[offset + b + i] |= parts[2][i] << 0;
+            grid[offset + a + i] |= parts[1][i] << 1;
+            grid[offset + b + i] |= parts[2][i] << 1;
         }
         if(part_c){ // bot r
-            grid[offset + b + i] |= parts[1][i] << 0;
-            grid[offset + c + i] |= parts[2][i] << 0;
+            grid[offset + b + i] |= parts[1][i] << 1;
+            grid[offset + c + i] |= parts[2][i] << 1;
         }
         if(part_d){ // bot h
             grid[offset + c + i] |= parts[0][i] << 0;
         }
         if(part_e){ // bot l
-            grid[offset + b + i] |= parts[1][i] << 26;
-            grid[offset + c + i] |= parts[2][i] << 26;
+            grid[offset + b + i] |= parts[1][i] << 27;
+            grid[offset + c + i] |= parts[2][i] << 27;
         }
         if(part_f){ // top l
-            grid[offset + a + i] |= parts[1][i] << 26;
-            grid[offset + b + i] |= parts[2][i] << 26;
+            grid[offset + a + i] |= parts[1][i] << 27;
+            grid[offset + b + i] |= parts[2][i] << 27;
         }
         if(part_g){ // mid h
             grid[offset + b + i] |= parts[0][i] << 0;
