@@ -1,9 +1,9 @@
-#ifndef PRIMITIVEWIDGET_h
-#define PRIMITIVEWIDGET_h
+#ifndef PRIMITIVEINPUT_h
+#define PRIMITIVEINPUT_h
 
 #include "GFX4d.h"
 
-class PrimitiveWidget {
+class PrimitiveInput {
     protected:
     void (*callback)(int);
     GFX4d *gfx;

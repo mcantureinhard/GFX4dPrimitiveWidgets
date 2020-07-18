@@ -1,9 +1,9 @@
 #ifndef PWSLIDER_h
 #define PWSLIDER_h
 
-#include "PrimitiveWidget.h"
+#include "PrimitiveInput.h"
 
-class PWSlider: public PrimitiveWidget {
+class PWSlider: public PrimitiveInput {
     private:
     //0 - 100
     uint8_t slider_pos;

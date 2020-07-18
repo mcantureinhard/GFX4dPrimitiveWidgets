@@ -1,14 +1,14 @@
 #ifndef PWBUTTON_h
 #define PWBUTTON_h
 
-#include "PrimitiveWidget.h"
+#include "PrimitiveInput.h"
 
 enum ButtonState {
     RELEASED=1,
     PRESSED=2
 };
 
-class PWButton: public PrimitiveWidget {
+class PWButton: public PrimitiveInput {
     private:
     ButtonState state = RELEASED;
     int textsize;
