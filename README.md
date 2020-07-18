@@ -7,3 +7,5 @@ Up to this moment this library has three components:
 * Button
 * Slider
 * Seven segment display (numeric only)
+
+<img src="extra/sample.jpg" alt="drawing" width="300"/>
