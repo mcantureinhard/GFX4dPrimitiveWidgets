@@ -57,7 +57,7 @@ class LedDigit: public PrimitiveOutput {
     public:
     LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX4d *gfx);
     ~LedDigit();
-    void update(uint8_t value);
+    void update(uint16_t value);
 };
 
 #endif

@@ -5,7 +5,7 @@
 
 class PrimitiveOutput {
     public:
-    virtual void update(uint8_t value);
+    virtual void update(uint16_t value);
 };
 
 #endif
