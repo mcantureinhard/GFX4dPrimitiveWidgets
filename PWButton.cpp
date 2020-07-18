@@ -16,6 +16,9 @@ PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
     
 }
 
+PWButton::~PWButton(){
+}
+
 void PWButton::drawButton(){
     uint16_t color;
     if(state == RELEASED){

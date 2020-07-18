@@ -14,6 +14,8 @@ PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
     drawSlider();
 }
 
+PWSlider::~PWSlider(){}
+
 // TODO: Add margin left/right
 void PWSlider::drawSlider(){
     gfx->RoundRectFilled(x+2, y + 2, x + w - 2, y + h - 2, 2,colorb);
