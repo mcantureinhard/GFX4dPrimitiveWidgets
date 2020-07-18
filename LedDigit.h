@@ -2,6 +2,7 @@
 #define LEDDIGIT_h
 
 #include "GFX4d.h"
+#include "PrimitiveOutput.h"
 
 const uint32_t parts[3][5] = {
     { // horizontal
@@ -43,7 +44,7 @@ const uint8_t sgmMap[] = {
 };
 
 
-class LedDigit {
+class LedDigit: public PrimitiveOutput {
     private:
     uint16_t x;
     uint16_t y;
