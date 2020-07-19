@@ -1,16 +1,9 @@
 #include "PWSlider.h"
 
-PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int), uint8_t initial_pos){
-    this->colorb = colorb;
-    this->colorbp = colorbp;
-    this->tcolor = tcolor;
-    this->x = x;
-    this->y = y;
-    this->w = w;
-    this->h = h;
-    this->gfx = gfx;
+PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int), uint8_t initial_pos)
+: PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback}
+{
     this->slider_pos = initial_pos;
-    this->callback = callback;
     drawSlider();
 }
 

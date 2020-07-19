@@ -1,17 +1,10 @@
 #include "PWButton.h"
 
-PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String text, GFX4d *gfx, void (*callback)(int), int textsize){
-    this->colorb = colorb;
-    this->colorbp = colorbp;
-    this->tcolor = tcolor;
-    this->x = x;
-    this->y = y;
-    this->w = w;
-    this->h = h;
+PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String text, GFX4d *gfx, void (*callback)(int), int textsize)
+: PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback}
+{
     this->text = text;
-    this->gfx = gfx;
     this->textsize = textsize;
-    this->callback = callback;
     drawButton();
     
 }
