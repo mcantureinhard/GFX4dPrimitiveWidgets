@@ -36,7 +36,12 @@ void PWSlider::updateSlider(uint16_t posx, uint16_t color){
 }
 
 void PWSlider::touched(uint16_t x, uint16_t y){
-    uint8_t calc_pos = (x - this->x) * 100 / w;
+    uint8_t calc_pos = (x - this->x) * 101 / w;
+    if(calc_pos < 0){
+        calc_pos = 0;
+    } else if(calc_pos > 100){
+        calc_pos = 100;
+    }
     if(calc_pos != slider_pos){
         updateSlider(slider_pos, colorb);
         slider_pos = calc_pos;

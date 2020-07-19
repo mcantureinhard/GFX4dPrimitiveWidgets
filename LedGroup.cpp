@@ -17,9 +17,9 @@ LedGroup::~LedGroup(){
 }
 
 void LedGroup::update(uint16_t value){
-    int c = this->count - 1;
+    int c = this->count;
     while(c){
-        digits[c]->update(value%10);
+        digits[c-1]->update(value%10);
         value/=10;
         c--;
     }
