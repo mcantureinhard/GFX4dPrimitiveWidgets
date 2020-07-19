@@ -16,7 +16,7 @@ LedGroup::~LedGroup(){
     delete [] digits;
 }
 
-void LedGroup::update(uint16_t value){
+void LedGroup::update(int32_t value){
     int c = this->count;
     while(c){
         digits[c-1]->update(value%10);

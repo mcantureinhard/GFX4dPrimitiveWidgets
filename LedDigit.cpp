@@ -11,7 +11,7 @@ LedDigit::LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX
 LedDigit::~LedDigit(){
 }
 
-void LedDigit::update(uint16_t v){
+void LedDigit::update(int32_t v){
     uint8_t value = (uint8_t)v;
     uint8_t changed = segments ^ sgmMap[value];
     if(!changed){

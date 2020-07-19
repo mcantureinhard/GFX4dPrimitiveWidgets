@@ -6,7 +6,7 @@
 class PrimitiveOutput {
     public:
     virtual ~PrimitiveOutput(){}
-    virtual void update(uint16_t value){}
+    virtual void update(int32_t value){}
 };
 
 #endif
