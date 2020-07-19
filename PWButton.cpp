@@ -5,7 +5,7 @@ PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
     this->colorbp = colorbp;
     this->tcolor = tcolor;
     this->x = x;
-    this->y = x;
+    this->y = y;
     this->w = w;
     this->h = h;
     this->text = text;
