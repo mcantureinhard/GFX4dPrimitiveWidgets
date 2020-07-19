@@ -9,3 +9,7 @@ Up to this moment this library has three components:
 * Seven segment display (numeric only)
 
 <img src="extra/sample.jpg" alt="drawing" width="300"/>
+
+## How to use
+
+Clone this repository into your Arduino/libraries directory
