@@ -15,9 +15,9 @@ class PrimitiveInput {
     uint16_t tcolor;
     uint16_t colorb;
     public:
-    virtual ~PrimitiveInput();
-    virtual void touched(uint16_t x, uint16_t y);
-    virtual void released();
+    virtual ~PrimitiveInput(){}
+    virtual void touched(uint16_t x, uint16_t y){}
+    virtual void released(){}
 };
 
 #endif

@@ -17,6 +17,7 @@ PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
 }
 
 PWButton::~PWButton(){
+    return;
 }
 
 void PWButton::drawButton(){
