@@ -1,7 +1,7 @@
 #include "PWSlider.h"
 
-PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int), uint8_t initial_pos)
-: PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback}
+PWSlider::PWSlider(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int, int), uint8_t initial_pos, int id)
+: PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback, id}
 {
     this->slider_pos = initial_pos;
     drawSlider();
@@ -39,7 +39,7 @@ void PWSlider::touched(uint16_t x, uint16_t y){
         updateSlider(slider_pos, colorb);
         slider_pos = calc_pos;
         updateSlider(slider_pos, tcolor);
-        callback(slider_pos);
+        callback(slider_pos, id);
     }
 }
 
