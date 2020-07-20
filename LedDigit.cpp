@@ -12,19 +12,32 @@ LedDigit::~LedDigit(){
 }
 
 void LedDigit::update(int32_t v){
-    uint8_t value = (uint8_t)v;
-    uint8_t changed = segments ^ sgmMap[value];
+    int8_t value = (int8_t)v;
+    uint8_t changed = this->value != value;
+    this->value = value;
     if(!changed){
         return;
     }
 
-    uint8_t part_a = sgmMap[value] & 0b0000001;
-    uint8_t part_b = sgmMap[value] & 0b0000010;
-    uint8_t part_c = sgmMap[value] & 0b0000100;
-    uint8_t part_d = sgmMap[value] & 0b0001000;
-    uint8_t part_e = sgmMap[value] & 0b0010000;
-    uint8_t part_f = sgmMap[value] & 0b0100000;
-    uint8_t part_g = sgmMap[value] & 0b1000000;
+    uint8_t part_a = 0;
+    uint8_t part_b = 0;
+    uint8_t part_c = 0;
+    uint8_t part_d = 0;
+    uint8_t part_e = 0;
+    uint8_t part_f = 0;
+    uint8_t part_g = 0;
+
+    if(value < 0){
+        part_g = 1;
+    } else {
+        part_a = sgmMap[value] & 0b0000001;
+        part_b = sgmMap[value] & 0b0000010;
+        part_c = sgmMap[value] & 0b0000100;
+        part_d = sgmMap[value] & 0b0001000;
+        part_e = sgmMap[value] & 0b0010000;
+        part_f = sgmMap[value] & 0b0100000;
+        part_g = sgmMap[value] & 0b1000000;
+    }
     
     int offset = 2;
     if(changed && 0b0110110){
