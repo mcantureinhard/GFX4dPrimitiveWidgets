@@ -16,7 +16,7 @@ GFX4d gfx = GFX4d();
 #define sld2y 140
 #define sld2h 40
 
-void cbtest(int val){
+void cbtest(int val, int id){
   Serial.print("cbtest: ");
   Serial.println(val);
 }
@@ -45,10 +45,10 @@ void setup() {
   gfx.TextColor(WHITE); gfx.Font(2);  gfx.TextSize(1);
   gfx.touch_Set(TOUCH_ENABLE);
   
-  btn = new PWButton(BLUE, RED, WHITE, 0,btny,240,btnh, "Im a button", &gfx, &cbtest, 2);
+  btn = new PWButton(BLUE, RED, WHITE, 0,btny,240,btnh, "Im a button", &gfx, &cbtest, 2, 1);
 
-  sldr = new PWSlider(GREEN, RED, WHITE, 0,sldy,240,sldh, &gfx, &cbtest, 0);
-  sldrtwo = new PWSlider(CHOCOLATE, RED, AQUA, 0,sld2y,120,sld2h, &gfx, &cbtest, 0);
+  sldr = new PWSlider(GREEN, RED, WHITE, 0,sldy,240,sldh, &gfx, &cbtest, 0, 2);
+  sldrtwo = new PWSlider(CHOCOLATE, RED, AQUA, 0,sld2y,120,sld2h, &gfx, &cbtest, 0, 3);
   
   mill = new LedDigit(0, 190, BLACK, LIME, &gfx);
   cent = new LedDigit(33, 190, BLACK, LIME, &gfx);
