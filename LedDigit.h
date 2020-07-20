@@ -50,7 +50,7 @@ class LedDigit: public PrimitiveOutput {
     uint16_t y;
     uint16_t colorb;
     uint16_t tcolor;
-    int8_t value;
+    int8_t value = -99; //Force update first time
     uint8_t segments = 0;
     uint32_t grid[66] = {32, 64,0};
     GFX4d *gfx;
