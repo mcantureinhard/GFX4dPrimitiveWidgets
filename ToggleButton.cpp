@@ -1,6 +1,6 @@
 #include "ToggleButton.h"
 
-ToggleButton::ToggleButton(uint16_t *colorb, int colors, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String *textOptions, int options, GFX4d *gfx, void (*callback)(int, int), int textsize, int id)
+ToggleButton::ToggleButton(uint16_t *colorb, int colors, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String *textOptions, int options, GFX4d *gfx, void (*callback)(int, int, int), int textsize, int id)
 : PWButton{colorb[0], colorbp, tcolor, x, y, w, h, textOptions[0], gfx, callback, textsize, id}
 {
     this->textOptions = textOptions;
@@ -26,6 +26,7 @@ void ToggleButton::touched(uint16_t x, uint16_t y){
         colorb = colorsb[selectedColor];
         updateText(textOptions[selected]);
         drawButton();
+        callback(state, id, selected);
     }
 }
 
@@ -36,6 +37,6 @@ void ToggleButton::released(){
     if(state != RELEASED){
         state = RELEASED;
         drawButton();
-        callback(selected, id);
+        callback(state, id, selected);
     }
 }

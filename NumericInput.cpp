@@ -1,6 +1,6 @@
 #include "NumericInput.h"
 
-NumericInput::NumericInput(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int, int), int textsize, int id, uint8_t flags)
+NumericInput::NumericInput(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, GFX4d *gfx, void (*callback)(int, int, int), int textsize, int id, uint8_t flags)
 : PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback, id}
 {
     this->bw = w/3;

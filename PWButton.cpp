@@ -1,6 +1,6 @@
 #include "PWButton.h"
 
-PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String text, GFX4d *gfx, void (*callback)(int, int), int textsize, int id)
+PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String text, GFX4d *gfx, void (*callback)(int, int, int), int textsize, int id)
 : PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback, id}
 {
     this->text = text;
@@ -53,7 +53,7 @@ void PWButton::touched(uint16_t x, uint16_t y){
     if(state != PRESSED){
         state = PRESSED;
         drawButton();
-        callback(PRESSED, id);
+        callback(PRESSED, id, 0);
     }
 }
 
@@ -64,7 +64,7 @@ void PWButton::released(){
     if(state != RELEASED){
         state = RELEASED;
         drawButton();
-        callback(RELEASED, id);
+        callback(RELEASED, id, 0);
     }
 }
 

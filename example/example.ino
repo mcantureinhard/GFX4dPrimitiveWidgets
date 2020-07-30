@@ -19,7 +19,7 @@ GFX4d gfx = GFX4d();
 String options[] = {"on", "off"};
 uint16_t colors[] = {GREEN,RED};
 
-void cbtest(int val, int id){
+void cbtest(int val, int id, int extra){
   Serial.print("cbtest: ");
   Serial.println(val);
 }
