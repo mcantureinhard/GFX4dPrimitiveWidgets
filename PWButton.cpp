@@ -1,6 +1,6 @@
 #include "PWButton.h"
 
-PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String text, GFX4d *gfx, void (*callback)(int, int), int textsize, int id)
+PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t x, uint16_t y, uint16_t w, uint16_t h, String *text, GFX4d *gfx, void (*callback)(int, int), int textsize, int id)
 : PrimitiveInput{colorb, colorbp, tcolor, x, y, w, h, gfx, callback, id}
 {
     this->text = text;
@@ -11,6 +11,10 @@ PWButton::PWButton(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, uint16_t 
 
 PWButton::~PWButton(){
     return;
+}
+
+void PWButton::updateText(String  *text) {
+    this->text = text;
 }
 
 void PWButton::drawButton(){
@@ -34,11 +38,11 @@ void PWButton::drawButton(){
     }
     gfx->TextColor(tcolor, tcolor);
     gfx->Font(tfont);
-    uint8_t blen = text.length();
+    uint8_t blen = (*text).length();
     if(blen > 0){
         gfx->TextSize(textsize);
         gfx->MoveTo(((x + (w / 2) - ((blen * tfw * textsize) / 2))), ((y + (h / 2) - ((tfh * textsizeht)/ 2)) + 1));
-        gfx->print(text);
+        gfx->print(*text);
     }
 }
 

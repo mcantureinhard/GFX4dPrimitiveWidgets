@@ -4,7 +4,7 @@
 #include "PrimitiveInput.h"
 #include "PWButton.h"
 
-const String numbers[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "."};
+String numbers[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "."};
 
 class NumericInput: public PrimitiveInput {
     private:

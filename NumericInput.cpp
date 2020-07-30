@@ -16,7 +16,7 @@ NumericInput::NumericInput(uint16_t colorb, uint16_t colorbp, uint16_t tcolor, u
             } else if(id == 12){
                 id = -2;
             }
-            buttons[i*3+j] = new PWButton(colorb, colorbp, tcolor, x + this->bw*j, y + this->bh*i, this->bw, this->bh, numbers[i*3+j], gfx, callback, textsize, id);
+            buttons[i*3+j] = new PWButton(colorb, colorbp, tcolor, x + this->bw*j, y + this->bh*i, this->bw, this->bh, &numbers[i*3+j], gfx, callback, textsize, id);
         }
     }
 }

@@ -3,7 +3,7 @@
 */
 
 #include "GFX4d.h"
-#include "PWButton.h"
+#include "ToggleButton.h"
 #include "PWSlider.h"
 #include "LedDigit.h"
 
@@ -16,6 +16,9 @@ GFX4d gfx = GFX4d();
 #define sld2y 140
 #define sld2h 40
 
+String options[] = {"on", "off"};
+uint16_t colors[] = {GREEN,RED};
+
 void cbtest(int val, int id){
   Serial.print("cbtest: ");
   Serial.println(val);
@@ -27,7 +30,7 @@ int d = 0;
 int u = 0;
 PWSlider *sldr;
 PWSlider *sldrtwo;
-PWButton *btn;
+ToggleButton *btn;
 bool btnP = false;
 LedDigit *mill;
 LedDigit *cent;
@@ -45,7 +48,7 @@ void setup() {
   gfx.TextColor(WHITE); gfx.Font(2);  gfx.TextSize(1);
   gfx.touch_Set(TOUCH_ENABLE);
   
-  btn = new PWButton(BLUE, RED, WHITE, 0,btny,240,btnh, "Im a button", &gfx, &cbtest, 2, 1);
+  btn = new ToggleButton(colors, sizeof(colors)/sizeof(colors[0]), DARKSLATEGRAY, WHITE, 0,btny,240,btnh, options, sizeof(options)/sizeof(options[0]), &gfx, &cbtest, 2, 1);
 
   sldr = new PWSlider(GREEN, RED, WHITE, 0,sldy,240,sldh, &gfx, &cbtest, 0, 2);
   sldrtwo = new PWSlider(CHOCOLATE, RED, AQUA, 0,sld2y,120,sld2h, &gfx, &cbtest, 0, 3);
@@ -95,7 +98,6 @@ void loop() {
     }
   }
  }
- delay(20);
  yield();
 
 }
