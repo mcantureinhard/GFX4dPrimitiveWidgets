@@ -77,7 +77,7 @@ void PWButton::setEnabled(bool enabled){
         colorb = bgSave;
     } else {
         bgSave = colorb;
-        colorb = DIMGRAY;
+        colorb = DARKGRAY;
         state = RELEASED;
     }
     drawButton();
