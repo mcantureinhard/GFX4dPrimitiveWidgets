@@ -1,6 +1,8 @@
 #include "LedGroup.h"
 
-LedGroup::LedGroup(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, int count, GFX4d *gfx){
+LedGroup::LedGroup(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, int count, GFX4d *gfx)
+:PrimitiveOutput{gfx}
+{
     this->count = count;
     digits = new LedDigit*[count];
     for(int i = 0; i < count; ++i) {
@@ -11,9 +13,10 @@ LedGroup::LedGroup(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, int
 
 LedGroup::~LedGroup(){
     for(int i = 0; i < count; ++i) {
-        delete [] digits[i];
+        if(digits[i] != NULL){
+            delete digits[i];
+        }
     }
-    delete [] digits;
 }
 
 void LedGroup::update(int32_t value){
