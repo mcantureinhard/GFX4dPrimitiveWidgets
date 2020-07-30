@@ -14,6 +14,7 @@ class PWSlider: public PrimitiveInput {
     ~PWSlider();
     void touched(uint16_t x, uint16_t y);
     void released();
+    void reset();
 };
 
 #endif

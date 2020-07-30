@@ -46,3 +46,8 @@ void PWSlider::touched(uint16_t x, uint16_t y){
 void PWSlider::released(){
     return;
 }
+
+void PWSlider::reset(){
+    slider_pos = 0;
+    drawSlider();
+}

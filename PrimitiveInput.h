@@ -22,6 +22,7 @@ class PrimitiveInput {
     virtual void touched(uint16_t x, uint16_t y){}
     virtual void released(){}
     virtual void setEnabled(bool);
+    virtual void reset(){}
 };
 
 #endif
