@@ -7,8 +7,6 @@ ToggleButton::ToggleButton(uint16_t *colorb, int colors, uint16_t colorbp, uint1
     this->options = options;
     this->colorsb = colorb;
     this->colors = colors;
-    Serial.print("Options: ");
-    Serial.println(options);
     selected = 0;
     selectedColor = 0;
 }
@@ -18,18 +16,23 @@ ToggleButton::~ToggleButton(){
 }
 
 void ToggleButton::touched(uint16_t x, uint16_t y){
+    if(!enabled){
+        return;
+    }
     if(state != PRESSED){
         state = PRESSED;
         selected = (selected + 1) % options;
         selectedColor = (selectedColor + 1) % colors;
         colorb = colorsb[selectedColor];
-        Serial.println(selected);
         updateText(&textOptions[selected]);
         drawButton();
     }
 }
 
 void ToggleButton::released(){
+    if(!enabled){
+        return;
+    }
     if(state != RELEASED){
         state = RELEASED;
         drawButton();

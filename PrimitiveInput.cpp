@@ -11,4 +11,9 @@ PrimitiveInput::PrimitiveInput(uint16_t colorb, uint16_t colorbp, uint16_t tcolo
     this->gfx = gfx;
     this->callback = callback;
     this->id = id;
+    enabled = true;
+}
+
+void PrimitiveInput::setEnabled(bool enabled){
+    this->enabled = enabled;
 }

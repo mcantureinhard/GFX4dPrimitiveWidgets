@@ -47,6 +47,9 @@ void PWButton::drawButton(){
 }
 
 void PWButton::touched(uint16_t x, uint16_t y){
+    if(!enabled){
+        return;
+    }
     if(state != PRESSED){
         state = PRESSED;
         drawButton();
@@ -55,9 +58,27 @@ void PWButton::touched(uint16_t x, uint16_t y){
 }
 
 void PWButton::released(){
+    if(!enabled){
+        return;
+    }
     if(state != RELEASED){
         state = RELEASED;
         drawButton();
         callback(RELEASED, id);
     }
+}
+
+void PWButton::setEnabled(bool enabled){
+    if(this->enabled == enabled){
+        return;
+    }
+    this->enabled = enabled;
+    if(enabled){
+        colorb = bgSave;
+    } else {
+        bgSave = colorb;
+        colorb = DIMGRAY;
+        state = RELEASED;
+    }
+    drawButton();
 }

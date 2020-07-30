@@ -12,6 +12,7 @@ class PWButton: public PrimitiveInput {
     protected:
     String *text;
     int textsize;
+    uint16_t bgSave;
     ButtonState state = RELEASED;
     void drawButton();
     void updateText(String *text);
@@ -20,6 +21,7 @@ class PWButton: public PrimitiveInput {
     ~PWButton();
     void touched(uint16_t x, uint16_t y);
     void released();
+    void setEnabled(bool);
 };
 
 #endif

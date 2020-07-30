@@ -92,6 +92,7 @@ void loop() {
     if(c == 10){
       c = 0;
       m++;
+      btn->setEnabled(c%2);
       if(m == 10){
         m = 0;
       }
@@ -99,5 +100,4 @@ void loop() {
   }
  }
  yield();
-
 }
