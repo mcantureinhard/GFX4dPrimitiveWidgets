@@ -4,9 +4,12 @@
 #include "GFX4d.h"
 
 class PrimitiveOutput {
+    protected:
+    int32_t v;
     public:
     virtual ~PrimitiveOutput(){}
-    virtual void update(int32_t value){}
+    virtual void update(int32_t value){ v = value; }
+    virtual int32_t getValue(){ return v; }
 };
 
 #endif

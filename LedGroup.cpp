@@ -17,6 +17,7 @@ LedGroup::~LedGroup(){
 }
 
 void LedGroup::update(int32_t value){
+    v = value;
     int c = this->count;
     int is_negative = value < 0;
     if(is_negative){
