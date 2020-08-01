@@ -1,12 +1,13 @@
 #include "LedDigit.h"
 
-LedDigit::LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX4d *gfx)
+LedDigit::LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX4d *gfx, int8_t initialValue)
 :PrimitiveOutput{gfx}
 {
     this->x = x;
     this->y = y;
     this->colorb = colorb;
     this->tcolor = tcolor;
+    update(initialValue);
 }
 
 void LedDigit::update(int32_t v){

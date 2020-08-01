@@ -54,7 +54,7 @@ class LedDigit: public PrimitiveOutput {
     uint8_t segments = 0;
     uint32_t grid[66] = {32, 64,0};
     public:
-    LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX4d *gfx);
+    LedDigit(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, GFX4d *gfx, int8_t initialValue);
     ~LedDigit(){}
     void update(int32_t value);
 };

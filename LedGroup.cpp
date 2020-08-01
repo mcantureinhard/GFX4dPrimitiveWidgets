@@ -1,13 +1,14 @@
 #include "LedGroup.h"
 
-LedGroup::LedGroup(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, int count, GFX4d *gfx)
+LedGroup::LedGroup(uint16_t x, uint16_t y, uint16_t colorb, uint16_t tcolor, int count, GFX4d *gfx, int32_t initialValue)
 :PrimitiveOutput{gfx}
 {
     this->count = count;
     digits = new LedDigit*[count];
-    for(int i = 0; i < count; ++i) {
-        digits[i] = new LedDigit(x + (33 * i), y, colorb, tcolor, gfx);
-        digits[i]->update(0);
+    this->v = initialValue;
+    for(int i = count - 1; i >= 0; i--){
+        digits[i] = new LedDigit(x + (33 * i), y, colorb, tcolor, gfx, initialValue%10);
+        initialValue /= 10;
     }
 }
 
